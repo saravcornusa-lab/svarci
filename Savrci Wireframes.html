@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Savrci Handicrafts — Wireframe Explorations</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&family=Kalam:wght@300;400;700&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script type="text/babel" src="design-canvas.jsx"></script>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { background:#f0ece5; font-family:'Caveat', cursive; }
+
+  /* Wireframe base styles */
+  .wf { font-family: 'Caveat', cursive; color: #2a2018; }
+
+  /* Image placeholders */
+  .img-box {
+    background: repeating-linear-gradient(
+      45deg, #d4c9bc, #d4c9bc 2px, #e8e0d6 2px, #e8e0d6 14px
+    );
+    border: 2px dashed #a89880;
+    display: flex; align-items: center; justify-content: center;
+    color: #8a7a6a; font-size: 13px; text-align:center;
+    font-family: 'Caveat', cursive; padding: 8px;
+  }
+
+  /* Nav placeholder */
+  .wf-nav {
+    display:flex; align-items:center; justify-content:space-between;
+    padding: 12px 20px;
+    border-bottom: 2px solid #2a2018;
+    background: #faf6f0;
+  }
+  .wf-nav .logo-box {
+    width:80px; height:36px;
+    border:2px solid #2a2018; border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+    font-size:13px; font-weight:700;
+  }
+  .wf-nav .links { display:flex; gap:14px; font-size:14px; }
+  .wf-nav .links span { border-bottom:1.5px solid #c4704a; cursor:pointer; }
+
+  /* Buttons */
+  .wf-btn {
+    display:inline-block; padding:8px 18px;
+    border:2px solid #2a2018; border-radius:2px;
+    font-family:'Caveat',cursive; font-size:14px; font-weight:700;
+    cursor:pointer; background:#faf6f0;
+  }
+  .wf-btn.filled { background:#c4704a; color:#fff; border-color:#c4704a; }
+
+  /* Section labels */
+  .section-tag {
+    font-size:10px; font-family:'Kalam',cursive;
+    color:#c4704a; text-transform:uppercase; letter-spacing:2px;
+    border:1px solid #c4704a; padding:2px 6px; display:inline-block;
+    margin-bottom:6px;
+  }
+  .annotation {
+    font-size:11px; color:#8a7a6a; font-family:'Caveat',cursive;
+    font-style:italic; margin-top:4px;
+  }
+</style>
+</head>
+<body>
+<script type="text/babel">
+const { useState } = React;
+
+/* ─── Shared image placeholder ─── */
+const Img = ({w, h, label, style={}}) => (
+  <div className="img-box" style={{width:w||'100%', height:h||120, ...style}}>
+    {label||'image'}
+  </div>
+);
+
+/* ─── Shared Nav ─── */
+const Nav = ({variant}) => (
+  <div className="wf-nav wf">
+    <div className="logo-box">SAVRCI</div>
+    <div className="links">
+      <span>Home</span>
+      <span>Gallery</span>
+      <span>About</span>
+      <span>Contact</span>
+    </div>
+    {variant==='B' && <div className="wf-btn">Shop Now</div>}
+  </div>
+);
+
+/* ─── VARIATION A: Full-Bleed Editorial ─── */
+const VariationA = () => (
+  <div className="wf" style={{background:'#faf6f0', width:'100%'}}>
+    <Nav variant="A"/>
+
+    {/* Hero: full bleed */}
+    <div style={{position:'relative'}}>
+      <Img h={320} label="Hero — wide craft scene / lifestyle photo" />
+      <div style={{
+        position:'absolute', inset:0, display:'flex', flexDirection:'column',
+        alignItems:'center', justifyContent:'center',
+        background:'rgba(42,32,24,0.35)',
+      }}>
+        <div style={{
+          background:'rgba(250,246,240,0.9)', padding:'16px 28px',
+          textAlign:'center', border:'2px solid #2a2018',
+          maxWidth:320
+        }}>
+          <div style={{fontSize:28, fontWeight:700, lineHeight:1.1}}>Svarci</div>
+          <div style={{fontSize:11, letterSpacing:3, marginBottom:8}}>HANDICRAFTS</div>
+          <div style={{fontSize:15, color:'#6b4226', marginBottom:12}}>"Handcrafted with Love"</div>
+          <div className="wf-btn filled">Explore Collection</div>
+        </div>
+      </div>
+    </div>
+    <div className="annotation" style={{textAlign:'center', padding:'4px 0'}}>↑ Full-bleed hero with frosted overlay card + CTA</div>
+
+    {/* Categories strip */}
+    <div style={{padding:'18px 16px'}}>
+      <div className="section-tag">Categories</div>
+      <div style={{display:'grid', gridTemplateColumns:'repeat(5,1fr)', gap:8, marginTop:6}}>
+        {['Miniatures','Quilling','3D Dolls','Peg Dolls','Crochet','Clay Jewellery','Cricut','Personalised','Return Gifts','Decor'].map(c=>(
+          <div key={c} style={{textAlign:'center'}}>
+            <Img h={70} label={c} />
+            <div style={{fontSize:12, marginTop:4, fontWeight:600}}>{c}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+    <div className="annotation" style={{textAlign:'center'}}>↑ 2-row × 5-col category grid — click → Gallery filtered view</div>
+
+    {/* Featured products */}
+    <div style={{padding:'16px'}}>
+      <div className="section-tag">Featured</div>
+      <div style={{display:'grid', gridTemplateColumns:'repeat(3,1fr)', gap:8, marginTop:6}}>
+        {[{h:130,l:'Product 1 — tall'},{h:90,l:'Product 2'},{h:130,l:'Product 3 — tall'},{h:90,l:'Product 4'},{h:90,l:'Product 5'},{h:90,l:'Product 6'}].map((p,i)=>(
+          <div key={i}>
+            <Img h={p.h} label={p.l}/>
+            <div style={{fontSize:12, marginTop:3}}>Product Name</div>
+            <div style={{fontSize:11, color:'#c4704a'}}>₹ —</div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    {/* Social strip */}
+    <div style={{padding:'14px 16px', background:'#2a2018', color:'#faf6f0', textAlign:'center'}}>
+      <div className="section-tag" style={{color:'#e8c8a0', borderColor:'#e8c8a0'}}>Follow Along</div>
+      <div style={{display:'flex', justifyContent:'center', gap:16, marginTop:8}}>
+        {['📸 Instagram','💬 WhatsApp','📌 Pinterest','🎵 TikTok','▶️ YouTube','👍 Facebook'].map(s=>(
+          <div key={s} style={{fontSize:13, border:'1px solid #e8c8a0', padding:'4px 8px', borderRadius:2}}>{s}</div>
+        ))}
+      </div>
+    </div>
+
+    {/* Footer */}
+    <div style={{padding:'10px 16px', background:'#1a1008', color:'#a89880', fontSize:12, textAlign:'center'}}>
+      © 2026 Savrci Handicrafts · All rights reserved
+    </div>
+  </div>
+);
+
+/* ─── VARIATION B: Split Story ─── */
+const VariationB = () => (
+  <div className="wf" style={{background:'#faf6f0', width:'100%'}}>
+    <Nav variant="B"/>
+
+    {/* Split hero */}
+    <div style={{display:'grid', gridTemplateColumns:'1fr 1fr', minHeight:280}}>
+      <div style={{
+        background:'#2a2018', padding:'32px 24px',
+        display:'flex', flexDirection:'column', justifyContent:'center',
+      }}>
+        <div style={{color:'#e8c8a0', fontSize:12, letterSpacing:3, marginBottom:8}}>SAVRCI HANDICRAFTS</div>
+        <div style={{color:'#faf6f0', fontSize:32, fontWeight:700, lineHeight:1.1, marginBottom:12}}>
+          Made by<br/>Hand.<br/>Given with<br/>Love.
+        </div>
+        <div style={{color:'#d4b898', fontSize:14, marginBottom:16}}>Handcrafted with Love</div>
+        <div style={{display:'flex', gap:10}}>
+          <div className="wf-btn filled">Shop Now</div>
+          <div className="wf-btn" style={{color:'#faf6f0', borderColor:'#faf6f0'}}>Our Story</div>
+        </div>
+      </div>
+      <div>
+        <Img h="100%" label="Hero product collage / lifestyle shot" style={{height:'100%', minHeight:280}}/>
+      </div>
+    </div>
+    <div className="annotation" style={{textAlign:'center', padding:'4px 0'}}>↑ Split hero — bold type left, product image right</div>
+
+    {/* Horizontal category scroll */}
+    <div style={{padding:'16px'}}>
+      <div className="section-tag">Browse by Category</div>
+      <div style={{display:'flex', gap:10, overflowX:'auto', marginTop:8, paddingBottom:4}}>
+        {['Miniatures','Quilling','3D Dolls','Peg Dolls','Crochet','Clay Jewellery','Cricut','Personalised','Return Gifts','Decor'].map(c=>(
+          <div key={c} style={{minWidth:90, textAlign:'center', flexShrink:0}}>
+            <Img w={90} h={90} label={c}/>
+            <div style={{fontSize:12, marginTop:4}}>{c}</div>
+          </div>
+        ))}
+      </div>
+      <div className="annotation">↑ Horizontal scroll strip on mobile / all visible on desktop</div>
+    </div>
+
+    {/* About teaser */}
+    <div style={{display:'grid', gridTemplateColumns:'1fr 1fr', gap:0, background:'#f0e8dc'}}>
+      <Img h={200} label="Maker at work / process photo"/>
+      <div style={{padding:'28px 20px', display:'flex', flexDirection:'column', justifyContent:'center'}}>
+        <div className="section-tag">Our Story</div>
+        <div style={{fontSize:20, fontWeight:700, margin:'8px 0'}}>Passion in every stitch & fold</div>
+        <div style={{fontSize:13, color:'#6b4226', lineHeight:1.5, marginBottom:14}}>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Each piece is made with care and intention...
+        </div>
+        <div className="wf-btn">Read More</div>
+      </div>
+    </div>
+
+    {/* Social icons */}
+    <div style={{padding:'18px 16px', textAlign:'center', borderTop:'2px solid #2a2018'}}>
+      <div className="section-tag">Find us on</div>
+      <div style={{display:'flex', justifyContent:'center', gap:14, marginTop:10, flexWrap:'wrap'}}>
+        {['Instagram','WhatsApp','Pinterest','TikTok','YouTube','Facebook'].map(s=>(
+          <div key={s} style={{
+            width:52, height:52, border:'2px solid #2a2018',
+            borderRadius:'50%', display:'flex', alignItems:'center',
+            justifyContent:'center', fontSize:12, fontWeight:600
+          }}>{s.slice(0,2)}</div>
+        ))}
+      </div>
+    </div>
+
+    {/* Footer */}
+    <div style={{padding:'10px 16px', background:'#1a1008', color:'#a89880', fontSize:12, textAlign:'center'}}>
+      © 2026 Savrci Handicrafts · Handcrafted with Love
+    </div>
+  </div>
+);
+
+/* ─── VARIATION C: Artisan Boutique ─── */
+const VariationC = () => (
+  <div className="wf" style={{background:'#fdf9f4', width:'100%'}}>
+    {/* Minimal nav */}
+    <div style={{display:'flex', alignItems:'center', justifyContent:'space-between', padding:'10px 20px', borderBottom:'1px solid #c4b0a0'}}>
+      <div style={{display:'flex', gap:14, fontSize:13}}>
+        <span>Gallery</span><span>About</span>
+      </div>
+      <div style={{textAlign:'center'}}>
+        <div style={{fontSize:22, fontWeight:700}}>Svarci</div>
+        <div style={{fontSize:9, letterSpacing:4}}>HANDICRAFTS</div>
+      </div>
+      <div style={{display:'flex', gap:14, fontSize:13}}>
+        <span>Contact</span><span>🛒</span>
+      </div>
+    </div>
+
+    {/* Asymmetric hero */}
+    <div style={{display:'grid', gridTemplateColumns:'55% 45%', minHeight:260}}>
+      <div style={{padding:'36px 24px', display:'flex', flexDirection:'column', justifyContent:'space-between'}}>
+        <div>
+          <div style={{fontSize:13, color:'#c4704a', letterSpacing:2, marginBottom:6}}>New Collection 2026</div>
+          <div style={{fontSize:38, fontWeight:700, lineHeight:1, marginBottom:8}}>
+            Tiny<br/>things,<br/>big love.
+          </div>
+          <div style={{fontSize:14, color:'#6b4226', maxWidth:220, lineHeight:1.5, marginBottom:16}}>
+            Handcrafted miniatures, quilling art, peg dolls & 300+ unique pieces made with care.
+          </div>
+          <div className="wf-btn filled">Explore All 300+ Items</div>
+        </div>
+        <div style={{display:'flex', gap:6, marginTop:12}}>
+          {['Miniatures','Quilling','Crochet','Clay'].map(t=>(
+            <span key={t} style={{fontSize:11, border:'1px solid #c4b0a0', padding:'3px 8px', borderRadius:12}}>#{t}</span>
+          ))}
+        </div>
+      </div>
+      <div style={{display:'grid', gridTemplateColumns:'1fr 1fr', gridTemplateRows:'1fr 1fr', gap:3, padding:3}}>
+        <Img label="product" style={{gridRow:'span 2'}}/>
+        <Img label="product"/>
+        <Img label="product"/>
+      </div>
+    </div>
+    <div className="annotation" style={{textAlign:'center', padding:'4px 0'}}>↑ Asymmetric hero — big type + tag pills left, mosaic product preview right</div>
+
+    {/* Category pills */}
+    <div style={{padding:'14px 16px', background:'#f0e8dc', borderTop:'1px solid #c4b0a0'}}>
+      <div className="section-tag">Categories</div>
+      <div style={{display:'flex', flexWrap:'wrap', gap:8, marginTop:8}}>
+        {['All','Miniatures','Quilling','3D Dolls','Peg Dolls','Crochet','Clay Jewellery','Cricut','Personalised Gifts','Return Gifts','Decor'].map((c,i)=>(
+          <div key={c} style={{
+            padding:'6px 14px', border:'1.5px solid #2a2018',
+            borderRadius:20, fontSize:13, fontWeight: i===0?700:400,
+            background: i===0 ? '#c4704a' : 'transparent',
+            color: i===0 ? '#fff' : '#2a2018',
+            cursor:'pointer'
+          }}>{c}</div>
+        ))}
+      </div>
+    </div>
+
+    {/* Gallery mosaic preview */}
+    <div style={{padding:'16px'}}>
+      <div style={{display:'flex', justifyContent:'space-between', alignItems:'center', marginBottom:8}}>
+        <div className="section-tag">Gallery Preview</div>
+        <div style={{fontSize:13, textDecoration:'underline', cursor:'pointer', color:'#c4704a'}}>View All →</div>
+      </div>
+      <div style={{display:'grid', gridTemplateColumns:'2fr 1fr 1fr', gridTemplateRows:'100px 100px', gap:4}}>
+        <Img label="Featured product" style={{gridRow:'span 2'}}/>
+        <Img label="product"/>
+        <Img label="product"/>
+        <Img label="product"/>
+        <Img label="product"/>
+      </div>
+    </div>
+
+    {/* Social + CTA band */}
+    <div style={{background:'#c4704a', padding:'18px 20px', color:'#fff', display:'flex', justifyContent:'space-between', alignItems:'center'}}>
+      <div>
+        <div style={{fontSize:18, fontWeight:700}}>Follow our craft journey</div>
+        <div style={{fontSize:12, opacity:.85, marginTop:2}}>Daily updates, process videos, behind the scenes</div>
+      </div>
+      <div style={{display:'flex', gap:8}}>
+        {['IG','WA','PT','TT','YT','FB'].map(s=>(
+          <div key={s} style={{
+            width:36, height:36, border:'2px solid #fff',
+            borderRadius:'50%', display:'flex', alignItems:'center',
+            justifyContent:'center', fontSize:12, fontWeight:700
+          }}>{s}</div>
+        ))}
+      </div>
+    </div>
+
+    {/* Footer */}
+    <div style={{padding:'10px 16px', background:'#1a1008', color:'#a89880', fontSize:12, textAlign:'center'}}>
+      © 2026 Savrci Handicrafts · Handcrafted with Love
+    </div>
+  </div>
+);
+
+/* ─── Gallery Page Wireframe ─── */
+const GalleryPage = () => (
+  <div className="wf" style={{background:'#faf6f0', width:'100%'}}>
+    <div style={{display:'flex', alignItems:'center', justifyContent:'space-between', padding:'10px 20px', borderBottom:'2px solid #2a2018', background:'#faf6f0'}}>
+      <div style={{fontSize:20, fontWeight:700}}>Svarci</div>
+      <div style={{display:'flex', gap:14, fontSize:13}}>
+        <span>Home</span><span style={{color:'#c4704a', textDecoration:'underline'}}>Gallery</span><span>About</span><span>Contact</span>
+      </div>
+    </div>
+    {/* Filter bar */}
+    <div style={{padding:'10px 16px', borderBottom:'1px solid #c4b0a0', display:'flex', gap:6, flexWrap:'wrap'}}>
+      {['All','Miniatures','Quilling','3D Dolls','Peg Dolls','Crochet','Clay Jewellery','Cricut','Personalised','Return Gifts','Decor'].map((c,i)=>(
+        <span key={c} style={{
+          fontSize:12, padding:'4px 10px', border:'1.5px solid #2a2018',
+          borderRadius:14, cursor:'pointer',
+          background: i===0?'#2a2018':'transparent', color:i===0?'#fff':'#2a2018'
+        }}>{c}</span>
+      ))}
+    </div>
+    <div className="annotation" style={{padding:'4px 16px'}}>↑ Filter pills — click to filter grid below</div>
+
+    {/* Masonry-style grid */}
+    <div style={{padding:'14px 16px'}}>
+      <div style={{display:'grid', gridTemplateColumns:'repeat(4,1fr)', gap:8}}>
+        {[140,90,120,90,90,140,100,90,120,80,100,140].map((h,i)=>(
+          <div key={i} style={{cursor:'pointer'}}>
+            <Img h={h} label={`Product ${i+1}`}/>
+            <div style={{fontSize:12, marginTop:3, fontWeight:600}}>Item Name</div>
+            <div style={{fontSize:11, color:'#8a7a6a'}}>Category</div>
+          </div>
+        ))}
+      </div>
+      <div style={{textAlign:'center', marginTop:14}}>
+        <div className="wf-btn">Load More (300+ items)</div>
+      </div>
+    </div>
+  </div>
+);
+
+/* ─── About + Contact Wireframe ─── */
+const AboutContact = () => (
+  <div className="wf" style={{background:'#faf6f0', width:'100%'}}>
+    {/* About */}
+    <div style={{padding:'20px 16px', borderBottom:'2px solid #2a2018'}}>
+      <div className="section-tag">About Savrci</div>
+      <div style={{display:'grid', gridTemplateColumns:'1fr 1fr', gap:16, marginTop:10}}>
+        <div>
+          <div style={{fontSize:22, fontWeight:700, marginBottom:8}}>The story behind<br/>every piece</div>
+          <div style={{fontSize:13, color:'#6b4226', lineHeight:1.6}}>
+            [About text — who you are, how you started, your passion for craft. Lorem ipsum placeholder.]
+          </div>
+        </div>
+        <div>
+          <Img h={150} label="Maker portrait / workspace"/>
+          <div style={{display:'grid', gridTemplateColumns:'1fr 1fr', gap:6, marginTop:6}}>
+            <Img h={80} label="Process photo"/>
+            <Img h={80} label="Process photo"/>
+          </div>
+        </div>
+      </div>
+    </div>
+    {/* Process steps */}
+    <div style={{padding:'16px', background:'#f0e8dc'}}>
+      <div className="section-tag">My Process</div>
+      <div style={{display:'grid', gridTemplateColumns:'repeat(4,1fr)', gap:10, marginTop:8}}>
+        {['Ideate','Design','Craft','Deliver'].map((s,i)=>(
+          <div key={s} style={{textAlign:'center', padding:'10px 6px', border:'2px solid #2a2018', background:'#faf6f0'}}>
+            <div style={{fontSize:20, marginBottom:4}}>0{i+1}</div>
+            <div style={{fontSize:14, fontWeight:700}}>{s}</div>
+            <div style={{fontSize:11, color:'#8a7a6a', marginTop:2}}>Short description here</div>
+          </div>
+        ))}
+      </div>
+    </div>
+    {/* Contact */}
+    <div style={{padding:'16px', borderTop:'2px solid #2a2018'}}>
+      <div className="section-tag">Contact</div>
+      <div style={{display:'grid', gridTemplateColumns:'1fr 1fr', gap:16, marginTop:10}}>
+        <div>
+          <div style={{fontSize:18, fontWeight:700, marginBottom:10}}>Get in touch</div>
+          {['Name','Email','Message (textarea)'].map(f=>(
+            <div key={f} style={{marginBottom:8}}>
+              <div style={{fontSize:12, marginBottom:3}}>{f}</div>
+              <div style={{
+                height: f.includes('textarea')?70:32, border:'2px solid #2a2018',
+                background:'#f5f0ea', borderRadius:2
+              }}/>
+            </div>
+          ))}
+          <div className="wf-btn filled" style={{marginTop:4}}>Send Message</div>
+        </div>
+        <div>
+          <div style={{fontSize:16, fontWeight:700, marginBottom:10}}>Find us</div>
+          <div style={{fontSize:13, lineHeight:1.8, color:'#6b4226'}}>
+            📧 email@savrci.com<br/>
+            📱 +91 — —<br/>
+            📍 Location, City<br/>
+            📸 @savrci_handicrafts
+          </div>
+          <div style={{marginTop:12}}>
+            <Img h={100} label="Map embed placeholder"/>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+);
+
+/* ─── Main App ─── */
+const App = () => (
+  <DesignCanvas title="Savrci Handicrafts — Wireframe Explorations">
+    <DCSection id="home" title="Home Page Variations">
+      <DCArtboard id="varA" label="A · Full-Bleed Editorial" width={480} height={900}>
+        <VariationA/>
+      </DCArtboard>
+      <DCArtboard id="varB" label="B · Split Story" width={480} height={900}>
+        <VariationB/>
+      </DCArtboard>
+      <DCArtboard id="varC" label="C · Artisan Boutique" width={480} height={900}>
+        <VariationC/>
+      </DCArtboard>
+    </DCSection>
+    <DCSection id="inner" title="Inner Pages">
+      <DCArtboard id="gallery" label="Gallery / Portfolio Page" width={480} height={700}>
+        <GalleryPage/>
+      </DCArtboard>
+      <DCArtboard id="aboutcontact" label="About + Contact Page" width={480} height={800}>
+        <AboutContact/>
+      </DCArtboard>
+    </DCSection>
+  </DesignCanvas>
+);
+
+ReactDOM.createRoot(document.getElementById('root')).render(<App/>);
+</script>
+<div id="root"></div>
+</body>
+</html>
