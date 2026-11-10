@@ -1,0 +1,15 @@
+Coasters — image folder
+Drop files in here using these exact names; the site picks them up with no code changes.
+
+cover.jpg   → category card + collection hero (portrait works best, min 1200px wide)
+01.jpg      → Terrazzo set
+02.jpg      → Marbled set
+03.jpg      → Kolam motif set
+04.jpg      → Crochet set
+05.jpg      → Monogram set
+06.jpg      → Floral set
+07.jpg      → Geometric set
+08.jpg      → Wedding favour set
+
+Anything missing falls back to the peg-doll placeholder automatically.
+Item names live in js/catalog.js if you want to rename them.

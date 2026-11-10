@@ -1,0 +1,15 @@
+Quilling — image folder
+Drop files in here using these exact names; the site picks them up with no code changes.
+
+cover.jpg   → category card + collection hero (portrait works best, min 1200px wide)
+01.jpg      → Flower bouquet
+02.jpg      → Portrait frame
+03.jpg      → Mandala art
+04.jpg      → Peacock wall frame
+05.jpg      → Monogram letter
+06.jpg      → Wedding invitation frame
+07.jpg      → Floral card set
+08.jpg      → Wall clock
+
+Anything missing falls back to the peg-doll placeholder automatically.
+Item names live in js/catalog.js if you want to rename them.

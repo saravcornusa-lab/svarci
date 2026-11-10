@@ -1,0 +1,15 @@
+Fridge Magnets — image folder
+Drop files in here using these exact names; the site picks them up with no code changes.
+
+cover.jpg   → category card + collection hero (portrait works best, min 1200px wide)
+01.jpg      → Miniature food set
+02.jpg      → Kolam magnets
+03.jpg      → Name magnets
+04.jpg      → Floral set
+05.jpg      → Festival set
+06.jpg      → Alphabet set
+07.jpg      → Photo magnets
+08.jpg      → Peg-doll magnets
+
+Anything missing falls back to the peg-doll placeholder automatically.
+Item names live in js/catalog.js if you want to rename them.

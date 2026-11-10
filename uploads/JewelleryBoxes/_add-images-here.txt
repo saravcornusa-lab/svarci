@@ -1,0 +1,15 @@
+Jewellery Boxes — image folder
+Drop files in here using these exact names; the site picks them up with no code changes.
+
+cover.jpg   → category card + collection hero (portrait works best, min 1200px wide)
+01.jpg      → Painted lid box
+02.jpg      → Two-tier box
+03.jpg      → Bangle box
+04.jpg      → Travel roll
+05.jpg      → Ring tray box
+06.jpg      → Mirror-lid box
+07.jpg      → Gift-set box
+08.jpg      → Compartment organiser
+
+Anything missing falls back to the peg-doll placeholder automatically.
+Item names live in js/catalog.js if you want to rename them.

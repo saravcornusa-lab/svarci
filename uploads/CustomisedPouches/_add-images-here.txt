@@ -1,0 +1,15 @@
+Customised Pouches — image folder
+Drop files in here using these exact names; the site picks them up with no code changes.
+
+cover.jpg   → category card + collection hero (portrait works best, min 1200px wide)
+01.jpg      → Name pouch
+02.jpg      → Travel pouch set
+03.jpg      → Jewellery pouch
+04.jpg      → Makeup pouch
+05.jpg      → Wedding favour pouch
+06.jpg      → Kids pouch
+07.jpg      → Zip pouch set
+08.jpg      → Motif pouch
+
+Anything missing falls back to the peg-doll placeholder automatically.
+Item names live in js/catalog.js if you want to rename them.

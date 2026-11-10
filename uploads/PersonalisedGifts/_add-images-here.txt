@@ -1,0 +1,15 @@
+Personalised Gifts — image folder
+Drop files in here using these exact names; the site picks them up with no code changes.
+
+cover.jpg   → category card + collection hero (portrait works best, min 1200px wide)
+01.jpg      → Name plaque
+02.jpg      → Photo frame
+03.jpg      → Personalised keychain
+04.jpg      → Anniversary shadow box
+05.jpg      → Newborn name frame
+06.jpg      → Desk sign
+07.jpg      → Memory jar
+08.jpg      → Engraved set
+
+Anything missing falls back to the peg-doll placeholder automatically.
+Item names live in js/catalog.js if you want to rename them.

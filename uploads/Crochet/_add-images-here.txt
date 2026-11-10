@@ -1,0 +1,15 @@
+Crochet — image folder
+Drop files in here using these exact names; the site picks them up with no code changes.
+
+cover.jpg   → category card + collection hero (portrait works best, min 1200px wide)
+01.jpg      → Amigurumi bear
+02.jpg      → Market bag
+03.jpg      → Baby booties
+04.jpg      → Flower bunch
+05.jpg      → Rattle toy
+06.jpg      → Coaster set
+07.jpg      → Keychain charms
+08.jpg      → Newborn wrap
+
+Anything missing falls back to the peg-doll placeholder automatically.
+Item names live in js/catalog.js if you want to rename them.

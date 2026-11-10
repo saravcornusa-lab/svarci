@@ -1,0 +1,15 @@
+Miniatures — image folder
+Drop files in here using these exact names; the site picks them up with no code changes.
+
+cover.jpg   → category card + collection hero (portrait works best, min 1200px wide)
+01.jpg      → Kitchen set
+02.jpg      → Bedroom scene
+03.jpg      → Café counter
+04.jpg      → Bakery display
+05.jpg      → Study desk
+06.jpg      → Garden nook
+07.jpg      → Market stall
+08.jpg      → Dining table set
+
+Anything missing falls back to the peg-doll placeholder automatically.
+Item names live in js/catalog.js if you want to rename them.

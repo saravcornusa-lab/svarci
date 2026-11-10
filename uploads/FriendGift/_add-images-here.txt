@@ -1,0 +1,15 @@
+Friend Gifts — image folder
+Drop files in here using these exact names; the site picks them up with no code changes.
+
+cover.jpg   → category card + collection hero (portrait works best, min 1200px wide)
+01.jpg      → Friendship keychain set
+02.jpg      → Name pouch
+03.jpg      → Photo frame
+04.jpg      → Coaster pair
+05.jpg      → Memory jar
+06.jpg      → Charm necklace
+07.jpg      → Mini bouquet
+08.jpg      → Gift hamper
+
+Anything missing falls back to the peg-doll placeholder automatically.
+Item names live in js/catalog.js if you want to rename them.

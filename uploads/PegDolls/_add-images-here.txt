@@ -1,0 +1,15 @@
+Peg Dolls — image folder
+Drop files in here using these exact names; the site picks them up with no code changes.
+
+cover.jpg   → category card + collection hero (portrait works best, min 1200px wide)
+01.jpg      → Rajasthani couple
+02.jpg      → Family set
+03.jpg      → Custom portrait set
+04.jpg      → Wedding party
+05.jpg      → Nursery rhyme set
+06.jpg      → Festival figures
+07.jpg      → Teacher gift set
+08.jpg      → Baby shower set
+
+Anything missing falls back to the peg-doll placeholder automatically.
+Item names live in js/catalog.js if you want to rename them.

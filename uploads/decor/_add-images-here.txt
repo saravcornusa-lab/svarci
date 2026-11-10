@@ -1,0 +1,15 @@
+Decor — image folder
+Drop files in here using these exact names; the site picks them up with no code changes.
+
+cover.jpg   → category card + collection hero (portrait works best, min 1200px wide)
+01.jpg      → Wall art
+02.jpg      → Candle holder
+03.jpg      → Table centrepiece
+04.jpg      → Hanging mobile
+05.jpg      → Shelf display set
+06.jpg      → Wreath
+07.jpg      → Seasonal garland
+08.jpg      → Framed motif
+
+Anything missing falls back to the peg-doll placeholder automatically.
+Item names live in js/catalog.js if you want to rename them.

@@ -1,0 +1,15 @@
+Kolam Manai — image folder
+Drop files in here using these exact names; the site picks them up with no code changes.
+
+cover.jpg   → category card + collection hero (portrait works best, min 1200px wide)
+01.jpg      → Festival manai
+02.jpg      → Bridal manai
+03.jpg      → Kolam board
+04.jpg      → Seemantham manai
+05.jpg      → Padi kolam panel
+06.jpg      → Pooja manai
+07.jpg      → Naming ceremony set
+08.jpg      → Custom motif manai
+
+Anything missing falls back to the peg-doll placeholder automatically.
+Item names live in js/catalog.js if you want to rename them.

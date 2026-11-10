@@ -1,0 +1,15 @@
+Jewellery — image folder
+Drop files in here using these exact names; the site picks them up with no code changes.
+
+cover.jpg   → category card + collection hero (portrait works best, min 1200px wide)
+01.jpg      → Floral earrings
+02.jpg      → Charm necklace
+03.jpg      → Ring set
+04.jpg      → Statement earrings
+05.jpg      → Terrazzo studs
+06.jpg      → Marbled hoops
+07.jpg      → Pendant on cord
+08.jpg      → Bridal set
+
+Anything missing falls back to the peg-doll placeholder automatically.
+Item names live in js/catalog.js if you want to rename them.

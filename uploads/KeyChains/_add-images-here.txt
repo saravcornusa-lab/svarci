@@ -1,0 +1,15 @@
+Key Chains — image folder
+Drop files in here using these exact names; the site picks them up with no code changes.
+
+cover.jpg   → category card + collection hero (portrait works best, min 1200px wide)
+01.jpg      → Name keychain
+02.jpg      → Peg-doll keychain
+03.jpg      → Crochet charm
+04.jpg      → Resin keychain
+05.jpg      → Photo keychain
+06.jpg      → Couple set
+07.jpg      → Bulk favour set
+08.jpg      → Motif keychain
+
+Anything missing falls back to the peg-doll placeholder automatically.
+Item names live in js/catalog.js if you want to rename them.

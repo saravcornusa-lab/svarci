@@ -1,0 +1,15 @@
+Trays — image folder
+Drop files in here using these exact names; the site picks them up with no code changes.
+
+cover.jpg   → category card + collection hero (portrait works best, min 1200px wide)
+01.jpg      → Pooja tray
+02.jpg      → Serving tray
+03.jpg      → Nut tray set
+04.jpg      → Painted round tray
+05.jpg      → Nesting tray pair
+06.jpg      → Wedding tray
+07.jpg      → Return-gift tray
+08.jpg      → Custom motif tray
+
+Anything missing falls back to the peg-doll placeholder automatically.
+Item names live in js/catalog.js if you want to rename them.
