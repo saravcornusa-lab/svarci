@@ -9,15 +9,16 @@
   const next=SVARCI_CATALOG[(idx+1)%SVARCI_CATALOG.length];
   document.title=c.name+' — Svarci Handicrafts';
 
-  const fig=(label,src,ratio)=>`<figure class="coll-figure" data-label="${label}" data-src="${src}"><button class="coll-open" aria-label="Enlarge ${label}"><div class="frame" style="aspect-ratio:${ratio}"><img class="fill-img" src="${src}" alt="${label}" loading="lazy" onerror="svarciFallback(this)"/></div></button><figcaption>${label}<span>${c.name}</span></figcaption></figure>`;
+  const fig=(i,tag)=>{const label=svarciItemName(c.items[i]),src=svarciItemImg(c,i),thumb=svarciItemThumb(c,i);
+    return `<figure class="coll-figure" data-label="${label}" data-src="${src}"><button class="coll-open" aria-label="Enlarge ${label}"><div class="frame" style="aspect-ratio:1/1"><img class="fill-img" src="${thumb}" data-full="${src}" alt="${label}" loading="lazy" decoding="async" onerror="svarciFallback(this)"/></div></button><figcaption>${label}<span>${tag}</span></figcaption></figure>`;};
 
-  const pattern=[1,2,2,1,2];
-  let i=0,rows='';
-  for(let p=0;i<c.items.length;p++){
-    const n=pattern[p%pattern.length];
-    const group=c.items.slice(i,i+n).map((t,k)=>fig(svarciItemName(t),svarciItemImg(c,i+k),n===1?'16/10':'4/5'));
-    i+=n;
-    rows+=`<div class="coll-row ${n===1?'one':'two'} fade-up">${group.join('')}</div>`;
+  let rows;
+  if(c.sets){
+    let n=0;
+    rows=c.sets.map(s=>{const start=n;n+=s.items.length;
+      return `<section class="coll-set"><div class="coll-set-head fade-up"><h2 class="coll-set-title">${s.title}</h2><span class="text-overline">${s.items.length} pieces</span></div><div class="coll-grid fade-up">${s.items.map((_,k)=>fig(start+k,s.title)).join('')}</div></section>`;}).join('');
+  } else {
+    rows=`<div class="coll-grid fade-up">${c.items.map((_,i)=>fig(i,c.name)).join('')}</div>`;
   }
 
   root.innerHTML=`
@@ -27,7 +28,7 @@
 <p>${c.blurb}</p>
 <p class="text-overline coll-count">${c.items.length} pieces</p>
 </div>
-<section class="section-sm woven-bg coll-texture"><div class="container"><div class="coll-stack">${rows}</div>
+<section class="section-sm coll-body"><div class="container"><div class="coll-stack">${rows}</div>
 <div class="coll-cta fade-up">
 <h2 class="display-md">Something like this, made for you</h2>
 <p class="text-body">Every piece in this collection can be adapted — colours, size, names and dates. Tell me what the occasion is.</p>
